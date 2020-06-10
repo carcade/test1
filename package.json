@@ -1,0 +1,39 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "carcade <carcw@yandex.ru>",
+  "scripts": {
+    "build": "webpack --mode=development --progress",
+    "prod": "webpack --mode=production --progress",
+    "watch": "webpack --mode=development --progress --watch",
+    "serve": "webpack-dev-server",
+    "lint": "yarn eslint -c .eslintrc.js --ext .vue,.ts src"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js",
+    "src": "./src"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "tailwindcss": "^1.4.6",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-loader": "^15.9.2",
+    "vue-property-decorator": "^8.4.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
