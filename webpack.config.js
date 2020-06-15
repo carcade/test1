@@ -1,7 +1,7 @@
 const path = require('path');
 const VueLoader = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     cache: true,
@@ -39,18 +39,21 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                use: [{
-                    loader: 'ts-loader',
-                    options: {
-                        configFile: 'tsconfig.json',
-                        appendTsSuffixTo: [/\.vue$/]
-                    }
-                }],
-            },
-            {
-                test: /\.js$/,
-                use: 'babel-loader',
-                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    },
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            configFile: 'tsconfig.json',
+                            appendTsSuffixTo: [/\.vue$/]
+                        }
+                    },
+                ],
             },
             {
                 test: /\.css$/,
@@ -70,7 +73,14 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {sourceMap: true}
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {sourceMap: true}
+                    },
                     'sass-loader',
                 ],
             },
